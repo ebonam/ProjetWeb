@@ -1,0 +1,6 @@
+RewriteEngine on
+RewriteBase /nuitinfo/
+RewriteRule utilisateurs/([^/]+)/? utilisateurs.php?login=$1
+RewriteRule utilisateurs/.* utilisateurs.php
+RewriteRule offres/.* offres.php
+RewriteRule messages/.* messages.php

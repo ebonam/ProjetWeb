@@ -1,0 +1,303 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"resp",
+				"response1"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "v1/api/offres.php",
+			"settings":
+			{
+				"buffer_size": 2377,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "consulterOffre.php",
+			"settings":
+			{
+				"buffer_size": 10651,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Komalys/Documents/PHPProject/BDD/BDD requetes insert.sql",
+			"settings":
+			{
+				"buffer_size": 2507,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "v1/api/.htaccess",
+			"settings":
+			{
+				"buffer_size": 479,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/wamp/www/komalisovh/index.html",
+		"/C/wamp/www/BenjaminWeb/v1/api/messages.php",
+		"/C/wamp/www/BenjaminWeb/v1/api/domaines.php",
+		"/C/wamp/www/BenjaminWeb/messagerie_bde.php",
+		"/C/Users/Komalys/Documents/PHPProject/BenjaminWeb/login.php",
+		"/C/wamp/www/BenjaminWeb/formuler_offre.php",
+		"/C/Users/Komalys/Documents/PHPProject/BenjaminWeb/messagerie_bde.php",
+		"/C/wamp/www/BenjaminWeb/v1/api/sql.php",
+		"/C/wamp/www/BenjaminWeb/v1/api/utilisateurs.php",
+		"/C/wamp/www/BenjaminWeb/annonce.php",
+		"/C/Users/Komalys/Documents/PHPProject/BenjaminWeb/v1/api/domaines.php",
+		"/C/wamp/www/Onche/index.php",
+		"/C/wamp/www/BenjaminWeb/index.php",
+		"/C/wamp/www/BenjaminWeb/inscription.php",
+		"/C/wamp/www/BenjaminWeb/v1/api/accueil.php",
+		"/C/wamp/www/BenjaminWeb/annonce.html",
+		"/C/Users/Komalys/Documents/PHPProject/BenjaminWeb/v1/api/.htaccess",
+		"/C/Users/Komalys/Documents/PHPProject/BenjaminWeb/annonce.html",
+		"/C/Users/Komalys/Documents/PHPProject/BDD/BDD requetes test.sql",
+		"/C/Users/Komalys/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Komalys/Documents/PHPProject/BenjaminWeb/v1/api/offres.php",
+		"/C/Users/Komalys/Documents/PHPProject/WebPHP/accueil.php",
+		"/C/Users/Komalys/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n	<meta charset=\"utf-8\">\n	<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n	<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->\n	<meta name=\"description\" content=\"\">\n	<meta name=\"author\" content=\"\">\n	<link rel=\"icon\" href=\"../../favicon.ico\">\n\n	<title>Consulter les offres</title>\n\n	<!-- Bootstrap core CSS -->\n	<link href=\"./dist/css/bootstrap.min.css\" rel=\"stylesheet\">\n\n	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->\n	<link href=\"./assets/css/ie10-viewport-bug-workaround.css\" rel=\"stylesheet\">\n\n	<!-- Custom styles for this template -->\n	<link href=\"justified-nav.css\" rel=\"stylesheet\">\n	<link href=\"consulterOffre.css\" rel=\"stylesheet\">\n	<link href=\"./css/bootstrap-custom.css\" rel=\"stylesheet\">\n\n	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->\n	<!--[if lt IE 9]><script src=\"../../assets/js/ie8-responsive-file-warning.js\"></script><![endif]-->\n	<script src=\"./assets/js/ie-emulation-modes-warning.js\"></script>\n	<script src=\"js/jquery.serialize-object.min.js\"></script>\n	<script src=\"js/jquery-1.11.3.min.js\"></script>\n\n	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n<!--[if lt IE 9]>\n      <script src=\"https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js\"></script>\n      <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>\n      <![endif]-->\n  </head>\n\n  <?php\n  session_start();\n  include ('httpful.phar');\n  ?>\n\n  <body>\n\n  	<div class=\"container\">\n\n		<!-- The justified navigation menu is meant for single line per list item.\n		Multiple lines will require custom code not provided by Bootstrap. -->\n		<div class=\"masthead\">\n			<h3 class=\"text-muted\">Troc Services</h3>\n			<?php\n			if (isset($_SESSION['hash']))\n			{\n				$uri = \"http://127.0.0.1/BenjaminWeb/v1/api/messages/v/\" . $_SESSION['login'];\n\n				$responce = \\Httpful\\Request::get($uri)->send();\n\n				$response1 = json_decode($responce);\n\n				$count = count($response1);\n\n				echo '<nav>\n				<ul class=\"nav nav-justified\">\n				<li><a href=\"index.php\">Accueil</a></li>\n				<li><a href=\"formuler_offre.php\">Formuler une offre</a></li>\n				<li class=\"active\"><a href=\"consulterOffre.php\">Consulter les offres</a></li>\n				<li class=\"dropdown\"><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">' . $_SESSION[\"login\"] . '<span class=\"caret\"></span></a>\n				<ul class=\"dropdown-menu\">\n				<li><a href=\"logout.php\">Déconnexion</a></li>\n				</ul></li>\n				<li ><a href=\"messagerie_bdr.php\">Messagerie <span class=\"badge-read\">' . $count . '</span></a></li>\n				<li><a href=\"contact.php\">Contact</a></li>\n				</ul>\n				</nav>';\n			}\n			else\n			{\n				echo '<nav>\n				<ul class=\"nav nav-justified\">\n				<li><a href=\"index.php\">Accueil</a></li>\n				<li><a href=\"formuler_offre.php\">Formuler une offre</a></li>\n				<li class=\"active\"><a href=\"consulterOffre.php\">Consulter les offres</a></li>\n				<li class=\"dropdown\"><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Mon compte<span class=\"caret\"></span></a>\n				<ul class=\"dropdown-menu\">\n				<li><a href=\"login.php\">Connexion</a></li>\n				<li><a href=\"inscription.php\">Inscription</a></li>\n				</ul></li>\n				<li><a href=\"messagerie_bdr.php\">Messagerie <span class=\"badge-read\">0</span></a></li>\n				<li><a href=\"contact.php\">Contact</a></li>\n				</ul>\n				</nav>';\n			}\n			?>\n		</div>\n\n		<form class=\"form-signin\">\n			<h2 class=\"form-signin-heading\">Consulter Offre</h2>\n			<div class=\"input-group\">\n				<span class=\"input-group-addon\" id=\"sizing-addon2\">Département&nbsp;</span> \n				<select class=\"form-control\" name=\"departement\">\n					<option value=\"01\">Ain</option>\n					<option value=\"02\">Aisne</option>\n					<option value=\"03\">Allier</option>\n					<option value=\"04\">Alpes-de-Haute-Provence</option>\n					<option value=\"05\">Hautes-Alpes</option>\n					<option value=\"06\">Alpes-Maritimes</option>\n					<option value=\"07\">Ardèche</option>\n					<option value=\"08\">Ardennes</option>\n					<option value=\"09\">Ariège</option>\n					<option value=\"10\">Aube</option>\n					<option value=\"11\">Aude</option>\n					<option value=\"12\">Aveyron</option>\n					<option value=\"13\">Bouches-du-Rhône</option>\n					<option value=\"14\">Calvados</option>\n					<option value=\"15\">Cantal</option>\n					<option value=\"16\">Charente</option>\n					<option value=\"17\">Charente-Maritime</option>\n					<option value=\"18\">Cher</option>\n					<option value=\"19\">Corrèze</option>\n					<option value=\"20\">Corse</option>\n					<option value=\"21\">Côte-d'Or</option>\n					<option value=\"22\">Côtes-d'Armor</option>\n					<option value=\"23\">Creuse</option>\n					<option value=\"24\">Dordogne</option>\n					<option value=\"25\">Doubs</option>\n					<option value=\"26\">Drôme</option>\n					<option value=\"27\">Eure</option>\n					<option value=\"28\">Eure-et-Loire</option>\n					<option value=\"29\">Finistère</option>\n					<option value=\"30\">Gard</option>\n					<option value=\"31\">Haute-Garonne</option>\n					<option value=\"32\">Gers</option>\n					<option value=\"33\">Gironde</option>\n					<option value=\"34\">Hérault</option>\n					<option value=\"35\">Ille-et-Vilaine</option>\n					<option value=\"36\">Indre</option>\n					<option value=\"37\">Idre-et-Loire</option>\n					<option value=\"38\">Isère</option>\n					<option value=\"39\">Jura</option>\n					<option value=\"40\">Landes</option>\n					<option value=\"41\">Loir-et-Cher</option>\n					<option value=\"42\">Loire</option>\n					<option value=\"43\">Haute-Loire</option>\n					<option value=\"44\">Loire-Atlantique</option>\n					<option value=\"45\">Loiret</option>\n					<option value=\"46\">Lot</option>\n					<option value=\"47\">Lot-et-Garonne</option>\n					<option value=\"48\">Lozère</option>\n					<option value=\"49\">Maine-et-Loire</option>\n					<option value=\"50\">Manche</option>\n					<option value=\"51\">Marne</option>\n					<option value=\"52\">Haute-Marne</option>\n					<option value=\"53\">Mayenne</option>\n					<option value=\"54\">Meurthe-et-Moselle</option>\n					<option value=\"55\">Meuse</option>\n					<option value=\"56\">Morbihan</option>\n					<option value=\"57\">Moselle</option>\n					<option value=\"58\">Nièvre</option>\n					<option value=\"59\">Nord</option>\n					<option value=\"60\">Oise</option>\n					<option value=\"61\">Orne</option>\n					<option value=\"62\">Pas-de-Calais</option>\n					<option value=\"63\">Puy-de-Dôme</option>\n					<option value=\"64\">Pyrénéees-Atlantique</option>\n					<option value=\"65\">Hautes-Pyrénées</option>\n					<option value=\"66\">Pyrénéees-Orientales</option>\n					<option value=\"67\">Bas-Rhin</option>\n					<option value=\"68\">Haute-Rhin</option>\n					<option value=\"69\">Rhône</option>\n					<option value=\"70\">Haute-Saône</option>\n					<option value=\"71\">Saône-et-Loire</option>\n					<option value=\"72\">Sarthe</option>\n					<option value=\"73\">Savoie</option>\n					<option value=\"74\">Haute-Savoie</option>\n					<option value=\"75\">Paris</option>\n					<option value=\"76\">Seine-Maritime</option>\n					<option value=\"77\">Seine-et-Marne</option>\n					<option value=\"78\">Yvelines</option>\n					<option value=\"79\">Deux-Sèvres</option>\n					<option value=\"80\">Somme</option>\n					<option value=\"81\">Tarn</option>\n					<option value=\"82\">Tarn-et-Garonne</option>\n					<option value=\"83\">Var</option>\n					<option value=\"84\">Vancluse</option>\n					<option value=\"85\">Vendée</option>\n					<option value=\"86\">Vienne</option>\n					<option value=\"87\">Haute-Vienne</option>\n					<option value=\"88\">Vosges</option>\n					<option value=\"89\">Yonne</option>\n					<option value=\"90\">Territoire de Belfort</option>\n					<option value=\"91\">Essonne</option>\n					<option value=\"92\">Haute-de-Seine</option>\n					<option value=\"93\">Seine-Saint-Denis</option>\n					<option value=\"94\">Val-de-Marne</option>\n					<option value=\"95\">Val-d'Oise</option>\n				</select>\n			</div>\n			<br>\n			<div class=\"input-group\">\n				<span class=\"input-group-addon\" id=\"sizing-addon2\">Prix maximum</span> <input type=\"text\" class=\"form-control\" placeholder=\"nombre(s) point(s)\" aria-describedby=\"sizing-addon2\" required autofocus>\n			</div>\n			<br>\n			<div class=\"input-group\">\n				<span class=\"input-group-addon\" id=\"sizing-addon2\">Domaine(s)&nbsp;&nbsp;&nbsp;</span>\n				<div style=\"height: 300px;; border: 1px solid #ccc; overflow: auto;\">\n\n\n\n					<div class=\"row\">\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Bonam</label>\n							</div>\n						</div>\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Julien</label>\n							</div>\n						</div>\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Benjamin</label>\n							</div>\n						</div>\n					</div>\n\n					<div class=\"row\">\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Mathieu</label>\n							</div>\n						</div>\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Option 1</label>\n							</div>\n						</div>\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Option 2</label>\n							</div>\n						</div>\n					</div>\n\n					<div class=\"row\">\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Etienne</label>\n							</div>\n						</div>\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Thibault</label>\n							</div>\n						</div>\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Julien</label>\n							</div>\n						</div>\n					</div>\n\n					<div class=\"row\">\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Bonam</label>\n							</div>\n						</div>\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Julien</label>\n							</div>\n						</div>\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Benjamin</label>\n							</div>\n						</div>\n					</div>\n\n					<div class=\"row\">\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Mathieu</label>\n							</div>\n						</div>\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Option 1</label>\n							</div>\n						</div>\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Option 2</label>\n							</div>\n						</div>\n					</div>\n\n					<div class=\"row\">\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Etienne</label>\n							</div>\n						</div>\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Thibault</label>\n							</div>\n						</div>\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Julien</label>\n							</div>\n						</div>\n					</div>\n\n					<div class=\"row\">\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Bonam</label>\n							</div>\n						</div>\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Julien</label>\n							</div>\n						</div>\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Benjamin</label>\n							</div>\n						</div>\n					</div>\n\n					<div class=\"row\">\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Mathieu</label>\n							</div>\n						</div>\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Option 1</label>\n							</div>\n						</div>\n						<div class=\"col-sm-4 col-md-4\">\n							<div class=\"radio\">\n								<label><input type=\"checkbox\" name=\"optradio\">&nbsp;Option 2</label>\n							</div>\n						</div>\n					</div>\n\n\n\n				</div>\n\n			</div>\n		</form>\n\n\n		<br> <br>\n		<button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Consulter</button>\n		<!-- Site footer -->\n		<footer class=\"footer\">\n			<p>&copy; 2015 Company, Inc.</p>\n		</footer>\n\n	</div>\n	<!-- /container -->\n\n	<!-- Bootstrap core JavaScript\n	================================================== -->\n	<!-- Placed at the end of the document so the pages load faster -->\n	<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js\"></script>\n	<script>\n	window.jQuery || document.write('<script src=\"../../assets/js/vendor/jquery.min.js\"><\\/script>')\n	</script>\n	<script src=\"./dist/js/bootstrap.min.js\"></script>\n	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->\n	<script src=\"./assets/js/ie10-viewport-bug-workaround.js\"></script>\n\n\n	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->\n	<script src=\"./assets/js/ie10-viewport-bug-workaround.js\"></script>\n\n</body>\n</html>\n",
+			">\n",
+			"inscription.html"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "v1/api/offres.php",
+					"settings":
+					{
+						"buffer_size": 2377,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								206,
+								206
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 196.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "consulterOffre.php",
+					"settings":
+					{
+						"buffer_size": 10651,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9419,
+								9419
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2985.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/Komalys/Documents/PHPProject/BDD/BDD requetes insert.sql",
+					"settings":
+					{
+						"buffer_size": 2507,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								643,
+								643
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SQL/SQL.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "v1/api/.htaccess",
+					"settings":
+					{
+						"buffer_size": 479,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								479,
+								479
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

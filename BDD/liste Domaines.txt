@@ -1,0 +1,31 @@
+Liste des domaines :
+Aide Menagere
+Animalerie
+Audiovisuel
+Automobile
+Autre
+Baby-sitting
+Bateau
+Bricolage
+Cours
+Electricite
+Electromenager
+Exterieur
+Festivites
+Gastronomie
+Immobilier
+Informatique
+Jardinage
+Jeux videos
+Maconnerie
+Maison
+Mecanique
+Mobilite
+Moto
+Musique
+Peinture
+Plomberie
+Sport
+Soins et beaute
+Telephonie
+Vacances

@@ -1,0 +1,22 @@
+.row .panel
+{
+	max-width: 650px;
+}
+
+.btn-group-justified
+{
+	padding-top: 7px;
+	max-width: 150px;
+	margin: auto;
+}
+
+.input-group
+{
+	padding-bottom: 10px;
+}
+
+
+.input-group .input-group-addon
+{
+	min-width: 80px;
+}

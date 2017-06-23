@@ -1,0 +1,39 @@
+.badge-unread {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: #d9534f;
+  border-radius: 10px;
+}
+
+.badge-read {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: #5cb85c;
+  border-radius: 10px;
+}
+
+.nav .open .dropdown-toggle { 
+	background-image: none;
+	-webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
+	box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
+	border-bottom: 0;
+	border-bottom: 0;
+	border-right: 1px groove  #d5d5d5 !important;
+    border-left: 1px groove #fff !important;
+}

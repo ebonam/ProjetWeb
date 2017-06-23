@@ -1,0 +1,18 @@
+RewriteEngine on
+RewriteBase /BenjaminWeb/v1/api/
+RewriteRule utilisateurs/([^/]+)/? utilisateurs.php?login=$1
+RewriteRule utilisateurs/.* utilisateurs.php
+RewriteRule connexion/.* connexion.php
+RewriteRule avis/([^/]+)/? avis.php?IDAvis=$1
+RewriteRule avis/.* avis.php
+RewriteRule messages/([^/]+)/([^/]+)/? messages.php?idDest=$1&id=$2
+RewriteRule messages/.* messages.php
+RewriteRule accueil/.* accueil.php
+RewriteRule domaines/.* domaines.php
+RewriteRule offres/idUser/([^/]+)/? offres.php?idUser=$1
+RewriteRule offres/id/([^/]+)/? offres.php?id=$1
+RewriteRule offres/([^/]+)/? offres.php?json=$1
+RewriteRule offres/.* offres.php
+RewriteRule souscriptions/([^/]+)/? souscriptions.php?idForm=$1
+RewriteRule souscriptions/.* souscriptions.php
+RewriteRule avis/.* avis.php

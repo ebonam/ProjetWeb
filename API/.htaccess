@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteBase /API/
+RewriteRule connexion/.* connexion.php	
+RewriteRule messages/.* messages.php
